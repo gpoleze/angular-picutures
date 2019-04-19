@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../service/auth/auth.service';
+import {AuthService} from '../../core/auth/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
