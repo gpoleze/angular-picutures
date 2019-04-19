@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 
 import {UserService} from '../user/user.service';
 import {User} from '../user/user';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'ap-header',
@@ -12,7 +13,15 @@ export class HeaderComponent {
 
     private user$: Observable<User>;
 
-    constructor(private service: UserService) {
+    constructor(
+        private service: UserService,
+        private router: Router
+    ) {
         this.user$ = service.getUser();
+    }
+
+    logout() {
+        this.service.logout();
+        this.router.navigate(['']);
     }
 }

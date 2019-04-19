@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from './core/auth/auth.guard';
 
 import {PhotoListComponent} from './photos/photo-list/photo-list.component';
 import {NotFoundComponent} from './errors/not-found/not-found.component';
@@ -9,7 +10,8 @@ import {SignInComponent} from './home/sign-in/sign-in.component';
 const ROUTES: Routes = [
     {
         path: '',
-        component: SignInComponent
+        component: SignInComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'user/:userName',
@@ -29,4 +31,5 @@ const ROUTES: Routes = [
         RouterModule
     ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
