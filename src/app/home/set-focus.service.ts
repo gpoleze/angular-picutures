@@ -1,7 +1,7 @@
 import {ElementRef, Injectable} from '@angular/core';
 import {PlatformDetectorService} from '../core/platform/plataform.service';
 
-@Injectable({providedIn: 'root'})
+@Injectable()
 export class SetFocusService {
     constructor(private service: PlatformDetectorService) { }
 

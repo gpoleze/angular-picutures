@@ -10,7 +10,8 @@ import {PlatformDetectorService} from '../../core/platform/plataform.service';
 import {SetFocusService} from '../set-focus.service';
 
 @Component({
-    templateUrl: './sing-up.component.html'
+    templateUrl: './sing-up.component.html',
+    providers: [UserNotTakenValidatorService]
 })
 export class SingUpComponent implements OnInit {
 
