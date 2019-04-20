@@ -5,8 +5,9 @@ import {RouterModule} from '@angular/router';
 
 import {SignInComponent} from './sign-in/sign-in.component';
 import {VMessageModule} from '../shared/components/vmessage/v-message.module';
-import { SingUpComponent } from './sing-up/sing-up.component';
-import { HomeComponent } from './home/home.component';
+import {SingUpComponent} from './sing-up/sing-up.component';
+import {HomeComponent} from './home/home.component';
+import {HomeRoutingModule} from './home.routing.module';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
         CommonModule,
         ReactiveFormsModule,
         VMessageModule,
-        RouterModule
+        RouterModule,
+        HomeRoutingModule
     ]
 })
 export class HomeModule {
