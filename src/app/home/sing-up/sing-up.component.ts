@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import {lowerCaseValidator} from '../../shared/validators/lower-case.validator';
@@ -6,6 +6,8 @@ import {UserNotTakenValidatorService} from './user-not-taken.validator.service';
 import {NewUser} from './new-user';
 import {SignUpService} from './sign-up.service';
 import {Router} from '@angular/router';
+import {PlatformDetectorService} from '../../core/platform/plataform.service';
+import {SetFocusService} from '../set-focus.service';
 
 @Component({
     templateUrl: './sing-up.component.html'
@@ -13,6 +15,7 @@ import {Router} from '@angular/router';
 export class SingUpComponent implements OnInit {
 
     signupForm: FormGroup;
+    @ViewChild('emailInput') emailInput: ElementRef<HTMLInputElement>;
     private FULL_NAME_MIN_LENGTH = 2;
     private FULL_NAME_MAX_LENGTH = 40;
     private USER_NAME_MIN_LENGTH = 2;
@@ -24,7 +27,8 @@ export class SingUpComponent implements OnInit {
         private formBuilder: FormBuilder,
         private userNotTakenValidatorService: UserNotTakenValidatorService,
         private service: SignUpService,
-        private router: Router
+        private router: Router,
+        private focusService: SetFocusService
     ) {
     }
 
@@ -55,6 +59,8 @@ export class SingUpComponent implements OnInit {
                 Validators.maxLength(this.PASSWORD_MAX_LENGTH)
             ]]
         });
+
+        this.focusService.setFocusOnInoutElement(this.emailInput);
     }
 
     signup() {
